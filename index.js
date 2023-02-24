@@ -1,7 +1,7 @@
 "use strict";
 
 const http = require('./http.js');
-const sendMail = require('./msgMail.js');
-const sendMail = require('./msgText.js');
+const sendEmail = require('./msgMail.js');
+const sendText = require('./msgText.js');
 
-module.exports = { http, sendMail, sendText }
+module.exports = { http, sendEmail, sendText }
