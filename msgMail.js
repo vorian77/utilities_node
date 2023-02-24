@@ -3,8 +3,13 @@
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const sendEmail = async function(emailToList, emailFrom, emailSubject, emailBody) {
-  const functionNameError = 'sendEmail'
+const sendEmail = async function(msg) {
+  const functionNameError = 'sendEmail';
+
+  const emailToList = msg.emailToList;
+  const emailFrom = msg.emailFrom;
+  const emailSubject = msg.emailSubject;
+  const emailBody = msg.emaiBody;
   
   try {
     // parms  
@@ -18,8 +23,10 @@ const sendEmail = async function(emailToList, emailFrom, emailSubject, emailBody
     // send
     try {
       const response = await sgMail.send(msg);
-      ctx.body = JSON.stringify(response[0].headers);
-      ctx.status = response[0].statusCode;
+      return {
+        body: JSON.stringify(response[0].headers),
+        status: response[0].statusCode
+      }
     } catch(err) {
       console.log(`${functionNameError}.sendGrid.error...`)
       const newErr = new Error(JSON.stringify(err.response.body.errors[0]));
