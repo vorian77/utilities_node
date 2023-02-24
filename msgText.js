@@ -41,12 +41,12 @@ const sendText = async function(phoneNbrTo, textBody, textMaxPrice) {
       console.log(`${functionNameError}.Twilio create success:`, bodyRtn);
       ctx.body = bodyRtn;
     } catch(err) {
-      console.log(`${functionNameError}.Twilio create error: ${JSON.stringify(err)}`);
+      console.error(`${functionNameError}.Twilio create error: ${JSON.stringify(err)}`);
       throw err;
     }
     
   } catch(err) {
-      console.log(`${functionNameError}.error:`, err.message);
+      console.error(`${functionNameError}.error:`, err.message);
       err.status = parseInt(err.status) || 501; 
       throw err;
   }

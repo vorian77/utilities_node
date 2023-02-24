@@ -23,6 +23,7 @@ const sendEmail = async function(msg) {
     // send
     try {
       console.log(`${functionNameError}.sendGrid.options...`, msg);
+      console.log(`api: ${process.env.SENDGRID_API_KEY}`)
       const response = await sgMail.send(msg);
       console.log(`${functionNameError}.sendGrid.succsfull.`);
       return {
@@ -30,13 +31,13 @@ const sendEmail = async function(msg) {
         status: response[0].statusCode
       }
     } catch(err) {
-      console.log(`${functionNameError}.sendGrid.error...`)
+      console.error(`${functionNameError}.sendGrid.error...`)
       const newErr = new Error(JSON.stringify(err.response.body.errors[0]));
       newErr.status = err.code;
       throw newErr;
     }
   } catch(err) {
-    console.log(`${functionNameError}.function.error...`)
+    console.error(`${functionNameError}.function.error...`)
     err.status = parseInt(err.status) || 501; 
     throw err;
   }

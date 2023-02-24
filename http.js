@@ -16,9 +16,9 @@ module.exports = async function (method, url, queryParms) {
   }
     
   try {
-      console.log('Axios options...', options);
+      console.error('Axios options...', options);
       const response = await axios(options);
-      console.log('Axios successful.');
+      console.error('Axios successful.');
       return response
     } catch(err) {
       err.status = err.response.status;
