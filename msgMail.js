@@ -22,7 +22,9 @@ const sendEmail = async function(msg) {
 
     // send
     try {
+      console.log(`${functionNameError}.sendGrid.options...`, msg);
       const response = await sgMail.send(msg);
+      console.log(`${functionNameError}.sendGrid.succsfull.`);
       return {
         body: JSON.stringify(response[0].headers),
         status: response[0].statusCode
