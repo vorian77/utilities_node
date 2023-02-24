@@ -1,7 +1,7 @@
 const axios = require('axios'); 
 const qs = require('qs'); 
 
-module.exports.request = async function (method, url, queryParms) {
+module.exports = async function (method, url, queryParms) {
   let options;
 
   switch(method.toLowerCase()) {
