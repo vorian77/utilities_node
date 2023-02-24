@@ -2,7 +2,9 @@
   "name": "@vorian77/node_utilities",
   "version": "0.1.0",
   "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
     "axios": "^0.27.2",
-    "qs": "^6.11.0"
+    "qs": "^6.11.0",
+    "twilio": "^4.8.0"
   }
 }
