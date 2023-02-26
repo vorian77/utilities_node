@@ -6,12 +6,10 @@ console.log('Launching index.js...')
 
 const { espConnect } = require('./esp.js');
 const http = require('./http.js');
-const { sendEmail } = require('./msgMail.js');
-const { sendText } = require('./msgText.js');
 
-module.exports = { espConnect, http, sendEmail, sendText }
+module.exports = { espConnect, http }
 
 // tests
-//const { testEspConnect, testSendText } = require('./tests.js');
+//const { testEspConnect, testHttp } = require('./tests.js');
 //testEspConnect();
-//testSendText();
+//testHttp();
