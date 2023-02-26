@@ -1,6 +1,7 @@
 "use strict";
 
 const axios = require('axios'); 
+const qs = require('qs'); 
 
 module.exports = async function (method, url, queryParms) {
   let options;
@@ -11,8 +12,7 @@ module.exports = async function (method, url, queryParms) {
       break;
 
     default:  // put, post, delete, patch
-      //options = { method, url, data: qs.stringify(queryParms), timeout: 1000 }
-      options = { method, url, data: JSON.stringify(queryParms), timeout: 1000 }
+      options = { method, url, data: qs.stringify(queryParms), timeout: 1000 }
   }
     
   try {
