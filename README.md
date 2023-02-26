@@ -1,14 +1,23 @@
 # Node utilities
 Node.js utilites shared among my private projects. <br><br>
 
+## espConnect
+espConnect(method, espFunction, queryParms)
+
+### Environmental Variables
+SENDGRID_API_KEY <br><br>
+
+
 ## http
 http(method, url, queryParms) <br><br>
+
 
 ## sendEmail
 sendEmail({emailToList, emailFrom, emailSubject, emailBody})
 
 ### Environmental Variables
 SENDGRID_API_KEY <br><br>
+
 
 ## sendText
 sendText(phoneNbrTo, textBody, textMaxPrice = TWILIO_MAXPRICE)
