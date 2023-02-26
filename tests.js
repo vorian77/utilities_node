@@ -1,7 +1,7 @@
 "use strict";
 
-const { espConnect } = require('./esp.js');
-const { sendText } = require('./msgText.js');
+const espConnect = require('./esp.js');
+const http = require('./http.js');
 
 module.exports.testEspConnect = async function () {
   const method = 'post';
@@ -12,11 +12,18 @@ module.exports.testEspConnect = async function () {
   console.log(JSON.stringify(response));
 }
 
-module.exports.testSendText = async function () {
-  const to = '+12487985578';
-  const body = 'Testing from node_utilities';
-  const maxPrice = '0.0075'  // optional
+module.exports.testHttp = async function () {
+  const method = 'post';
+  const url = 'https://webhook.site/14818aef-1006-49a1-866d-55b4cad4fb03';
+  const query = {parm1:'v1', parm2:'v2'};
 
-  const response = await sendText(to, body, maxPrice);
-  console.log(JSON.stringify(response));
+  try {
+    const response = await http(method, url, query);
+    return {
+      body: response.statusText,
+      status: response.status
+    }
+  } catch(err) {
+    throw err;
+  }
 }
