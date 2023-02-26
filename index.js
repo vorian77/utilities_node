@@ -12,6 +12,6 @@ const { sendText } = require('./msgText.js');
 module.exports = { espConnect, http, sendEmail, sendText }
 
 // tests
-const { testEspConnect, testSendText } = require('./tests.js');
-testEspConnect();
+//const { testEspConnect, testSendText } = require('./tests.js');
+//testEspConnect();
 //testSendText();
