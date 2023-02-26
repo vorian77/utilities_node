@@ -5,7 +5,7 @@ const http = require('./http.js');
 
 module.exports.testEspConnect = async function () {
   const method = 'post';
-  const espFunction = 'ws_test';
+  const espFunction = '/ws_test';
   const queryParms = { status: 200, parm1: 'v1', parm2: 'v2 '};
 
   const response = await espConnect(method, espFunction, queryParms);
