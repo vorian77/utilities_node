@@ -3,10 +3,9 @@
 require('dotenv').config();
 const http = require('./http.js');
 
-module.exports.espConnect = async function (parms) {
-  let { method, espFunction, queryParms } = parms;
-  queryParms = encryptPassword(queryParms);
-  return await transmit(method, espFunction, queryParms);
+module.exports.espConnect = async function (method, espFunction, queryParms) {
+  const espParms = encryptPassword(queryParms);
+  return await transmit(method, espFunction, espParms);
 }
 
 function encryptPassword(queryParms) {

@@ -4,13 +4,11 @@ const { espConnect } = require('./esp.js');
 const { sendText } = require('./msgText.js');
 
 module.exports.testEspConnect = async function () {
-  const parms = {
-    method: 'get',
-    espFunction: 'ws_root',
-    queryParms: {}
-  }
+  const method = 'post';
+  const espFunction = 'ws_test';
+  const queryParms = { status: 200, parm1: 'v1', parm2: 'v2 '};
 
-  const response = await espConnect(parms);
+  const response = await espConnect(method, espFunction, queryParms);
   console.log(JSON.stringify(response));
 }
 
