@@ -16,7 +16,7 @@ function encryptPassword(queryParms) {
 }
 
 async function transmit(method, espFunction, queryParms) {
-  const url = process.env.ESP_DB_URL + '/' + espFunction;
+  const url = process.env.ESP_DB_URL + espFunction;
     
   try {
     const rtn = await http(method, url, queryParms);
